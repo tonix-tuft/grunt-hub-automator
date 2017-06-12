@@ -18,11 +18,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     hub: {
       all: {
-        src: ['/path/to/*/Gruntfile.js'],
-        tasks: ['watch']
+        src: ['/path/to/*/Gruntfile.js']
+        //, tasks: ['yourtask'] // Uncomment this line and add the tasks to execute for each project found by Grunt Hub Automator.
       }
-    },
-    watch: '<config:hub.all.files>'
+    }
   });
 
   grunt.loadNpmTasks('grunt-hub');
