@@ -1,0 +1,79 @@
+#!/bin/sh
+
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Grunt Hub Automator v1.0.0
+## ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+##
+# This file is a sample.
+#
+# Copy this file and save it in the same directory with the name grunt-hub-automator.
+##
+
+##
+# This file starts as an entry point to start Grunt Hub Automator and also includes some configuration.
+##
+GRUNT_HUB_AUTOMATOR=$(basename "$0")
+
+##
+# If you run this script in background as a daemon (it depends on your OS, the recommended way is to use the daemon
+# command on *nix operating systems like Ubuntu and Mac OS X), you may have troubles as this script may not be able to
+# find the needed commands (such as node).
+#
+# Therefore, if you run this script as a daemon (which is recommended) and are experiencing errors
+# (check the respective logs of your watched projects to know which command can't be found), you must set this PATH
+# variable accordingly, otherwise Grunt Hub Automator won't be able to run the needed commands (such as node).
+#
+# You can also source the needed environment variables if you need them using the source command (aka .). It's really up
+# to you to decide.
+##
+PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/sbin:${PATH} # default
+
+##
+# Replace GRUNT_HUB_AUTOMATOR_ROOT with the path to your Grunt Hub Automator root folder.
+# This directory must be an existing Grunt Hub.
+#
+# 	https://github.com/shama/grunt-hub
+##
+GRUNT_HUB_AUTOMATOR_ROOT=/Applications/MAMP/htdocs/bluelinks
+
+##
+# Run the Grunt Hub Automator. Absolute paths are recommended. Plase note that on some distributions the paths to the
+# involved commands may be different, so you should double-check them before running the command for the very first time.
+##
+
+##
+# Replace this path with the path to your local daemon command. If you don't have one, replace it with the path
+# to your "daemonizing" command. If you don't have such command, you can omit it.
+# If this command doesn't exist, this script will ignore it and will run this command in foreground.
+##
+DAEMONIZE_COMMAND=/usr/local/bin/daemon # The absolute path to your "daemonizing" command.
+
+UNIQ_MKTEMP=$(mktemp)
+PREFIX=$GRUNT_HUB_AUTOMATOR
+UNIQ_MKTEMP_FILE="/tmp/$PREFIX."$(basename "$UNIQ_MKTEMP")".log"
+if ls /tmp/$PREFIX.*.log 1> /dev/null 2>&1; then
+	 rm /tmp/$PREFIX*.log
+fi
+rm $UNIQ_MKTEMP
+DAEMONIZE_COMMAND_LOG=$UNIQ_MKTEMP_FILE # The absolute path to the "daemonizing" command log file. Must be a writable path. You don't have to use it only one file for all messages (output, error), this is the default. If you want to omit it or change it, be sure to change the next DAEMONIZE_COMMAND_ARGS variable and modify it as you need.
+
+DAEMONIZE_COMMAND_ARGS="--output=$DAEMONIZE_COMMAND_LOG --dbglog=$DAEMONIZE_COMMAND_LOG --errlog=$DAEMONIZE_COMMAND_LOG --stdout=$DAEMONIZE_COMMAND_LOG --stderr=$DAEMONIZE_COMMAND_LOG -- " # Change the arguments of your "daemonizing" command if it's not the daemon command or if you need.
+
+GRUNT_COMMAND="/usr/local/bin/grunt watch" # The absolute path to your grunt command.
+
+GRUNT_HUB_AUTOMATOR_LOG=$DAEMONIZE_COMMAND_LOG # By default, the "daemonizing" command log is the same as the log of the command output and error file destriptors. You can modify it if you need.
+
+command_exists() {
+  command -v "$1" >/dev/null 2>&1
+}
+
+FINAL_COMMAND=''
+if command_exists $DAEMONIZE_COMMAND; then
+	 FINAL_COMMAND="$DAEMONIZE_COMMAND $DAEMONIZE_COMMAND_ARGS"
+else
+	 echo 'Grunt Hub Automator: warning, "daemonizing" command not found!';
+	 echo 'Grunt Hub Automator will run in foreground without logging if you don'"'"'t wrap it with a "daemonizing" utility.';
+fi
+
+$FINAL_COMMAND $GRUNT_COMMAND --gruntfile=${GRUNT_HUB_AUTOMATOR_ROOT}/Gruntfile.js >> $GRUNT_HUB_AUTOMATOR_LOG 2>&1
