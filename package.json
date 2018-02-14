@@ -1,7 +1,7 @@
 {
   "name": "grunt-hub-automator",
   "version": "1.0.0",
-  "description": "A Grunt Hub which runs as a daemon and helps executing tasks on multiple Grunt projects",
+  "description": "A Grunt Hub suitable to run as a daemon which helps executing tasks on multiple Grunt projects",
   "devDependencies": {
     "grunt": "^0.4.5"
   },
