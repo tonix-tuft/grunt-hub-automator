@@ -1,0 +1,3 @@
+#!/bin/bash
+
+launchctl load -w /Library/LaunchAgents/com.grunt.hub.automator.plist
