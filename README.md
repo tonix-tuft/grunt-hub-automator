@@ -2,6 +2,11 @@
 
 A Grunt Hub suitable to run as a daemon which helps executing tasks on multiple Grunt projects.
 
+## What can you use it for?
+
+You can use a Grunt Hub Automator to automate the build of your projects.
+(your projects' Gruntfile.js should have watch tasks defined).
+
 ## Prerequisites
 
 The only prerequisite is to have `npm` installed. You should already have it if you use `Grunt`. If so, skip to the *Getting Started* section.
@@ -68,6 +73,39 @@ Otherwise, all you need to do is to install the `daemon` command and register th
 
 Below the instructions depending on your platform.
 
+#### Linux
+
+Install the `daemon` command using your package manager, e.g. for Ubuntu:
+
+```
+$ sudo apt-get install daemon
+```
+
+After the daemon command is installed, to assure that the script is executed when your machine boots,
+edit the file `/etc/rc.local` with root privileges and add the following line before the last one (`exit 0`):
+
+```
+/Must/Be/An/Absolute/Path/To/Your/grunt-hub-automator/grunt-hub-automator
+```
+
+Note that the path to the `grunt-hub-automator` script **must be absolute**.
+
+You can then reboot your machine and the daemon should start.
+To stop it programmatically use the provided command `stop-linux`:
+
+```
+$ ./stop-linux
+```
+
+You can also edit the `start-linux` script and specify the path to the `grunt-hub-automator` script
+(**it must be an absolute path**).
+
+Then you can use the `start-linux` script to start the Grunt Hub Automator too:
+
+```
+$ ./start-linux
+```
+
 #### OS X
 
 To install the `daemon` command, you can use [brew](https://brew.sh/index.html):
@@ -76,10 +114,10 @@ To install the `daemon` command, you can use [brew](https://brew.sh/index.html):
 $ brew install daemon
 ```
 
-After the daemon command is installed, copy or rename the sample *com.grunt.hub.automator.plist* to create a launch agent:
+After the daemon command is installed, copy or rename the sample `com.grunt.hub.automator.plist` file to create a launch agent:
 
 - Open the file and edit the line `<string>/Must/Be/An/Absolute/Path/To/Your/grunt-hub-automator/grunt-hub-automator</string>`
-so that it points to your *grunt-hub-automator* script (it must be an **absolute path**)
+so that it points to your *grunt-hub-automator* script (**it must be an absolute path**)
 - Move the file to `/Library/LaunchAgents/`:
 
 ```
@@ -104,15 +142,11 @@ If you ever need to stop the daemon, use the provided script named `stop-os-x`:
 $ ./stop-os-x
 ```
 
-#### Linux
-
-
-
 #### Windows
 
 Oops! There's nothing for Windows. I guess Windows users won't even look at this repo, anyway.
 
-### After you ran the daemon
+### After you run the daemon
 
 After you launch the daemon on your system you can see a log file with a path name similar to `/tmp/grunt-hub-automator.tmp.CY0h1P7b.log`.
 Please keep in mind that these file will be recreated from scratch each time you restart the daemon.
