@@ -2,3 +2,7 @@ nbproject/**
 /node_modules/**
 Gruntfile.js
 grunt-hub-automator
+start-linux
+stop-linux
+start-os-x
+stop-os-x

@@ -1,4 +1,0 @@
-#!/bin/sh
-
-launchctl unload /Library/LaunchAgents/com.grunt.hub.automator.plist
-ps -ef | sed -n '/grunt/{/grep/!p;}' | awk '{print$2}' | for PID in $(cat -); do kill $PID; done
