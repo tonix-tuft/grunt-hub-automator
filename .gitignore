@@ -6,3 +6,4 @@ start-linux
 stop-linux
 start-os-x
 stop-os-x
+com.grunt.hub.automator.plist
