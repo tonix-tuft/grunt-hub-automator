@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-  <dict>
-	 
-    <key>Label</key>
-    <string>com.grunt.hub.automator</string>
+    <dict>
 
-    <key>RunAtLoad</key>
-    <true/>
-	 
-	 <key>ProgramArguments</key>
-    <array>
-      <string>/Must/Be/An/Absolute/Path/To/Your/grunt-hub-automator/grunt-hub-automator</string>
-    </array>
-	 
-  </dict>
+        <key>Label</key>
+        <string>com.grunt.hub.automator</string>
+
+        <key>RunAtLoad</key>
+        <true/>
+
+        <key>ProgramArguments</key>
+        <array>
+            <string>/Must/Be/An/Absolute/Path/To/Your/grunt-hub-automator/grunt-hub-automator</string>
+        </array>
+
+    </dict>
 </plist>
