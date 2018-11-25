@@ -85,7 +85,7 @@ DAEMONIZE_COMMAND=/usr/local/bin/daemon # The absolute path to your "daemonizing
 ```
 
 You must edit this path accordingly and specify the absolute path to the `daemon` command if you already have it installed or
-as do it soon as you install the `daemon` command for your plaform (below). To find out the absolute path of the `daemon` command,
+as soon as you install the `daemon` command for your plaform (below). To find out the absolute path of the `daemon` command,
 use the following command:
 
 ```
