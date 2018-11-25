@@ -8,21 +8,25 @@ You can use a Grunt Hub Automator to automate the build of your projects (your p
 
 ## Prerequisites
 
-The only prerequisite is to have `npm` installed. You should already have it if you use `Grunt`. If so, skip directly to the *Getting Started* section.
+The only prerequisite is to have `npm` and `grunt` installed. You should already have `npm` if you use `grunt`. If so, skip directly to the *Getting Started* section.
 
-If you don't have `npm`, take a look at the [NPM's installation guide](https://www.npmjs.com/get-npm).
+If you don't have `npm`, take a look at the [npm's installation guide](https://www.npmjs.com/get-npm).
 
-Basically, all you need to do is to install `node` (which will install `npm` too) and then issue the following command to update `npm` to the
-latest version:
+Also, if you don't have `grunt`, continue reading below.
+
+Basically, all you need to do is to install `node` (which will install `npm` too), issue the following command to update `npm` to its
+latest version and install `grunt`:
 
 ```
 $ npm install npm@latest -g
+$ npm install -g grunt-cli
 ```
 
-**NOTE**: if you are using OS X, you may need to prefix the command with `sudo`, therefore:
+**NOTE**: if you are using OS X, you may need to prefix the commands with `sudo`, therefore:
 
 ```
 $ sudo npm install npm@latest -g
+$ sudo npm install -g grunt-cli
 ```
 
 ## Getting Started
