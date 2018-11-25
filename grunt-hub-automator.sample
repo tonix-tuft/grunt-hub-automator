@@ -18,7 +18,7 @@ GRUNT_HUB_AUTOMATOR=$(basename "$0")
 ##
 # If you run this script in background as a daemon (it depends on your OS, the recommended way is to use the daemon
 # command on *nix operating systems like Ubuntu and Mac OS X), you may have troubles as this script may not be able to
-# find the needed commands (such as node).
+# find the needed commands (such as node and grunt).
 #
 # Therefore, if you run this script as a daemon (which is recommended) and are experiencing errors
 # (check the respective logs of your watched projects to know which command can't be found), you must set this PATH
@@ -58,9 +58,9 @@ fi
 rm $UNIQ_MKTEMP
 DAEMONIZE_COMMAND_LOG=$UNIQ_MKTEMP_FILE # The absolute path to the "daemonizing" command log file. Must be a writable path. You don't have to use it only one file for all messages (output, error), this is the default. If you want to omit it or change it, be sure to change the next DAEMONIZE_COMMAND_ARGS variable and modify it as you need.
 
-DAEMONIZE_COMMAND_ARGS="--output=$DAEMONIZE_COMMAND_LOG --dbglog=$DAEMONIZE_COMMAND_LOG --errlog=$DAEMONIZE_COMMAND_LOG --stdout=$DAEMONIZE_COMMAND_LOG --stderr=$DAEMONIZE_COMMAND_LOG -- " # Change the arguments of your "daemonizing" command if it's not the daemon command or if you need.
+DAEMONIZE_COMMAND_ARGS="--output=$DAEMONIZE_COMMAND_LOG --dbglog=$DAEMONIZE_COMMAND_LOG --errlog=$DAEMONIZE_COMMAND_LOG --stdout=$DAEMONIZE_COMMAND_LOG --stderr=$DAEMONIZE_COMMAND_LOG --" # Change the arguments of your "daemonizing" command if it's not the daemon command or if you need.
 
-GRUNT_COMMAND="/usr/local/bin/grunt watch" # The absolute path to your grunt command.
+GRUNT_COMMAND="/usr/local/bin/grunt hub:all:watch" # The absolute path to your grunt command.
 
 GRUNT_HUB_AUTOMATOR_LOG=$DAEMONIZE_COMMAND_LOG # By default, the "daemonizing" command log is the same as the log of the command output and error file destriptors. You can modify it if you need.
 
