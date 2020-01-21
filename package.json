@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "grunt-hub": "^1.0.0",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.15",
     "minimatch": ">=3.0.2"
   }
 }
