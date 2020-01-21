@@ -8,7 +8,7 @@ You can use a Grunt Hub Automator to automate the build of your projects (your p
 
 ## Prerequisites
 
-The only prerequisite is to have `npm` and `grunt` installed. You should already have `npm` if you use `grunt`. If so, skip directly to the *Getting Started* section.
+The only prerequisite is to have `npm` and `grunt` installed. You should already have `npm` if you use `grunt`. If so, skip directly to the _Getting Started_ section.
 
 If you don't have `npm`, take a look at the [npm's installation guide](https://www.npmjs.com/get-npm).
 
@@ -31,7 +31,7 @@ $ sudo npm install -g grunt-cli
 
 ## Getting Started
 
-When you are done with the *Prerequisites* section, clone the repository on your local machine, enter it and launch the `npm install` command:
+When you are done with the _Prerequisites_ section, clone the repository on your local machine, enter it and launch the `npm install` command:
 
 ```
 $ git clone https://github.com/tonix-tuft/grunt-hub-automator
@@ -50,7 +50,7 @@ The following steps must be done:
 
 ### Gruntfile.sample.js
 
-Copy this file and save it as *Gruntfile.js* in the same directory. Open *Gruntfile.js*, and replace the `src` property with the paths to the Grunt files of your projects:
+Copy this file and save it as _Gruntfile.js_ in the same directory. Open _Gruntfile.js_, and replace the `src` property with the paths to the Grunt files of your projects:
 
 ```
   ...
@@ -66,8 +66,8 @@ The Grunt Hub Automator will then run as a daemon and use this configuration to 
 
 ### grunt-hub-automator.sample
 
-The last step is to set up the daemon which will run the Grunt Hub Automator. Copy the script *grunt-hub-automator.sample*
-and save it as *grunt-hub-automator*.
+The last step is to set up the daemon which will run the Grunt Hub Automator. Copy the script _grunt-hub-automator.sample_
+and save it as _grunt-hub-automator_.
 
 The default "daemonizing" tool used by Grunt Hub Automator is the `daemon` command, which you can be found both on Linux and on OS X.
 The file contains several variables needed to configure the command which you may edit if you need.
@@ -100,7 +100,7 @@ Install the `daemon` command using your package manager, e.g. for Ubuntu:
 $ sudo apt-get install daemon
 ```
 
-Then assure that the following line within `grunt-hub-automator` points to the **full path** to your `daemon` command:
+Then assure that the following line within `grunt-hub-automator` points to the **absolute path** to your `daemon` command:
 
 ```
 ...
@@ -148,13 +148,13 @@ $ brew install daemon
 After the daemon command is installed, create a launch agent:
 
 - Copy the sample `com.grunt.hub.automator.plist.sample` in the current folder and save it with
-the name `com.grunt.hub.automator.plist`;
+  the name `com.grunt.hub.automator.plist`;
 
 - Open the new file and edit the following line so that it points to your `grunt-hub-automator` script (**it must be an absolute path**):
 
 ```
 ...
-<string>/Must/Be/An/Absolute/Path/To/Your/grunt-hub-automator/grunt-hub-automator</string>`
+<string>/Must/Be/An/Absolute/Path/To/Your/grunt-hub-automator/grunt-hub-automator</string>
 ...
 ```
 
