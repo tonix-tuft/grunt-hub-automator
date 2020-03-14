@@ -1,9 +1,15 @@
 {
   "name": "grunt-hub-automator",
   "version": "1.0.0",
+  "license": "MIT",
   "description": "A Grunt Hub suitable to run as a daemon which helps executing tasks on multiple Grunt projects",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tonix-tuft/grunt-hub-automator.git"
+  },
   "devDependencies": {
-    "grunt": "^1.0.4"
+    "grunt": "^1.0.4",
+    "minimist": ">=1.2.2"
   },
   "dependencies": {
     "grunt-hub": "^1.0.0",
