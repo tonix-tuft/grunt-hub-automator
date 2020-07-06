@@ -1,6 +1,12 @@
 {
   "name": "grunt-hub-automator",
   "version": "1.0.0",
+  "keywords": [
+    "grunt",
+    "grunt-hub",
+    "grunt-task"
+  ],
+  "author": "Anton Bagdatyev (Tonix)",
   "license": "MIT",
   "description": "A Grunt Hub suitable to run as a daemon which helps executing tasks on multiple Grunt projects",
   "repository": {
