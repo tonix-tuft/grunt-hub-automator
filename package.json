@@ -20,6 +20,6 @@
   "dependencies": {
     "grunt-hub": "^1.0.0",
     "lodash": "^4.17.21",
-    "minimatch": ">=3.0.2"
+    "minimatch": ">=3.0.5"
   }
 }
